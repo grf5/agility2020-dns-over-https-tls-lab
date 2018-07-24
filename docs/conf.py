@@ -5,7 +5,7 @@
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "Getting Started with F5 BIG-IP"
+classname = "F5 BIG-IP DDoS and DNS DoS Protections"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
 github_repo = "https://github.com/f5devcentral/your-class-repo"
