@@ -93,17 +93,17 @@ multiple source hosts.
 
 3.  Click on **TCP Syn Flood** vector name.
 
-4.  Configure the vector with the following parameters:
+4.  Configure the vector with the following parameters (use the lower values specified):
 
     a. State: Mitigate
 
     b. Threshold Mode: Fully Manual
 
-    c. Detection Threshold EPS: 400
+    c. Detection Threshold EPS: 50
 
-    d. Detection Threshold Percent: 500
+    d. Detection Threshold Percent: 200
 
-    e. | Mitigation Threshold EPS: 500
+    e. | Mitigation Threshold EPS: 100
        | |image35|
 
 5.  Click **Update** to save your changes.
