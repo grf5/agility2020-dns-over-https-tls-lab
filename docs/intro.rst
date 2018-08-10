@@ -156,18 +156,15 @@ detection log messages in real-time.
 
 To connect to the lab:
 
-1. Navigate to the training portal URL given to you by the instructor.
-
-2. You will be presented with the login page. Login using the
-     credentials provided.
+1. Navigate to http://training.f5agility.com/
 
 |image1|
 
-3. | In the menu, click on the environment:
+2. | In the menu, click on the environment:
 
 | |image2|
 
-4. You will see a list of the hosts in your environment. For best results, RDP to the DNS name of the Jumpbox. If RDP is not working, you can click on the console of the Jumpbox.
+3. You will see a list of the hosts in your environment. For best results, RDP to the DNS name of the Jumpbox. If RDP is not working, you can click on the console of the Jumpbox.
 
 |image3|
 
