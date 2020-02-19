@@ -130,9 +130,6 @@ shows my queries to f5.com, f5agility.com and disney.com.
 Stop your capture before moving to the next section. This concludes the
 DoH-to-DNS proxy portion of the lab.
 
-
-
-
 .. |image1.png| image:: media/image1.png
    :width: 7.5in
    :height: 5.29969in
