@@ -79,7 +79,7 @@
 <li><a class="reference internal" href="#virtual-server-configuration">2.2.1. Virtual Server Configuration</a></li>
 <li><a class="reference internal" href="#test-driving-dns-over-tls-to-traditional-dns">2.2.2. Test Driving DNS over TLS to Traditional DNS</a></li>
 <li><a class="reference internal" href="#viewing-statistics-for-dot-to-dns">2.2.3. Viewing Statistics for DoT-to-DNS</a></li>
-<li><a class="reference internal" href="#packet-capture">2.2.4. Packet Capture</a></li>
+<li><a class="reference internal" href="#capturing-dns-over-tls-to-traditional-dns-traffic">2.2.4. Capturing DNS over TLS to Traditional DNS Traffic</a></li>
 </ul>
 </li>
 </ul>
@@ -101,6 +101,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology.html">3. Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../components.html">4. Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../access.html">5. Accessing the Lab</a></li>
 </ul>
 
         </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
@@ -162,8 +163,8 @@ server, you won’t see any information in <strong>System</strong> -&gt; <strong
 traffic. Conventional F5 logging/statistics practices can be used for
 these connections, so we’ll move on.</p>
 </div>
-<div class="section" id="packet-capture">
-<span id="packet-capture-1"></span><h2>2.2.4. Packet Capture<a class="headerlink" href="#packet-capture" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="capturing-dns-over-tls-to-traditional-dns-traffic">
+<span id="packet-capture-1"></span><h2>2.2.4. Capturing DNS over TLS to Traditional DNS Traffic<a class="headerlink" href="#capturing-dns-over-tls-to-traditional-dns-traffic" title="Permalink to this headline">¶</a></h2>
 <p>Maximize the BIG-IP CLI window. Execute the follow tcpdump command:</p>
 <p>tcpdump -nni 0.0 port 53 or port 853</p>
 <p>Return to the Ubuntu Jump Host and re-run your <strong>kdig</strong> command. Observe

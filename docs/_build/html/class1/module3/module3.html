@@ -78,7 +78,7 @@
 <li><a class="reference internal" href="#">2.3. Proxying Traditional DNS to DNS over TLS</a><ul>
 <li><a class="reference internal" href="#test-driving-traditional-dns-to-dns-over-tls">2.3.1. Test Driving Traditional DNS to DNS over TLS</a></li>
 <li><a class="reference internal" href="#viewing-statistics-for-dns-to-dot">2.3.2. Viewing Statistics for DNS-to-DoT</a></li>
-<li><a class="reference internal" href="#packet-capture">2.3.3. Packet Capture</a></li>
+<li><a class="reference internal" href="#capturing-traditional-dns-to-dns-over-tls-traffic">2.3.3. Capturing Traditional DNS to DNS over TLS Traffic</a></li>
 </ul>
 </li>
 </ul>
@@ -100,6 +100,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology.html">3. Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../components.html">4. Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../access.html">5. Accessing the Lab</a></li>
 </ul>
 
         </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
@@ -149,8 +150,8 @@ corresponding virtual server:</p>
 Conventional F5 logging methods can be used for this traffic so we won’t
 cover that in this lab.</p>
 </div>
-<div class="section" id="packet-capture">
-<span id="packet-capture-2"></span><h2>2.3.3. Packet Capture<a class="headerlink" href="#packet-capture" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="capturing-traditional-dns-to-dns-over-tls-traffic">
+<span id="packet-capture-2"></span><h2>2.3.3. Capturing Traditional DNS to DNS over TLS Traffic<a class="headerlink" href="#capturing-traditional-dns-to-dns-over-tls-traffic" title="Permalink to this headline">¶</a></h2>
 <p>We can see the 53/853 exchange on a packet capture using the same
 <strong>tcpdump</strong> command we used in the DoT-to-DNS section, as the IP/ports
 are simply being switched around:</p>
