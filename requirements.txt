@@ -1,8 +1,5 @@
-Sphinx==1.6.2
 git+git://github.com/f5devcentral/f5-sphinx-theme@master#egg=f5_sphinx_theme
-recommonmark
-sphinxjp.themes.basicstrap
-sphinxcon..trib-googleanalytics
+sphinxcontrib-googleanalytics
 actdiag==0.5.4
 alabaster==0.7.11
 argh==0.26.2
