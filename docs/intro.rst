@@ -1,14 +1,42 @@
-Lab Overview
-------------
+Getting Started
+---------------
 
-Introduction
+Please follow the instructions provided by the instructor to start your
+lab and access your jump host.
+
+.. NOTE::
+	 All work for this lab will be performed exclusively from the Windows
+	 jumphost. No installation or interaction with your local system is
+	 required.
+
+Lab Topology
 ~~~~~~~~~~~~
 
-In this lab, you will see DNS over HTTPS (DoH) and DNS over TLS (DoT) queries proxied in both directions. That is, traditional DNS queries will be proxied to backend DoT/DoH servers, as well as DoH/DoT queries being proxied to traditional DNS servers.
+The following components have been included in your lab environment:
 
-DoT is "simpler" to proxy as the original DNS protocol is simply encapsulated in TLS using client-SSL (DoT-to-DNS) or server-ssl (DNS-to-DoT) profiles.
+- 2 x F5 BIG-IP VE (v12.1)
+- 1 x F5 iWorkflow VE (v2.1)
+- 1 x Linux LAMP Webserver (xubuntu 14.04)
+- 1 x Windows Jumphost
 
-DoH is a bit more complex as we must take the DNS request and encapsulate it into a binary HTTPS payload (DNS-to-DoH) or extract the binary payload and convert it into a traditional DNS query (DoH-to-DNS).
+Lab Components
+^^^^^^^^^^^^^^
 
-We will use the power of iRulesLX to handle this advanced task. Native functionality will be available in a near-future release of TMOS so that the iRules will not be necessary.
+The following table lists VLANS, IP Addresses and Credentials for all
+components:
+
+.. list-table::
+    :widths: 20 40 40
+    :header-rows: 1
+    :stub-columns: 1
+
+    * - **Component**
+      - **VLAN/IP Address(es)**
+      - **Credentials**
+    * - Sample Host
+      - - **Management:** 10.1.1.250
+        - **Internal:** 10.1.10.250
+        - **External:** 10.1.20.250
+      - ``admin``/``admin``
+
 

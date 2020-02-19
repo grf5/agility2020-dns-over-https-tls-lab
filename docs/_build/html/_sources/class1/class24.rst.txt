@@ -1,6 +1,0 @@
-Conclusion
-==========
-
-Congratulations on completing the lab! 
-
-**NOTE:** This lab also did not cover auto thresholds for protections, nor did we test dynamic signatures. Testing auto thresholds requires a more real-world environment. For suggested testing guidelines for auto thresholds and dynamic signatures, engage your F5 account team.
