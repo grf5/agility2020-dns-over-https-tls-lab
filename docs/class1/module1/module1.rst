@@ -140,7 +140,6 @@ DoH-to-DNS proxy portion of the lab.
 .. |image4.png| image:: _images/image4.png
    :width: 7.5in
    :height: 4.47917in
-   :height: 4.47917in
 .. |image5.png| image:: _images/image5.png
    :width: 7.5in
    :height: 4.48438in
