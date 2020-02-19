@@ -43,8 +43,8 @@ cover that in this lab.
 
 .. _packet-capture-2:
 
-Packet Capture
-~~~~~~~~~~~~~~
+Capturing Traditional DNS to DNS over TLS Traffic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We can see the 53/853 exchange on a packet capture using the same
 **tcpdump** command we used in the DoT-to-DNS section, as the IP/ports

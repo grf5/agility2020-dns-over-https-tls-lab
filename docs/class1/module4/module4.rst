@@ -34,8 +34,8 @@ on the iRule for this translation:
 
 .. _packet-capture-3:
 
-Packet Capture
-~~~~~~~~~~~~~~
+Capturing Traditional DNS to DNS over HTTPS Traffic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Running a packet capture, we can see the front-end udp/53 requests being
 translated to DoH requests:

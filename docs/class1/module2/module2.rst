@@ -56,8 +56,8 @@ these connections, so we’ll move on.
 
 .. _packet-capture-1:
 
-Packet Capture 
-~~~~~~~~~~~~~~
+Capturing DNS over TLS to Traditional DNS Traffic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Maximize the BIG-IP CLI window. Execute the follow tcpdump command:
 
