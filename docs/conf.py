@@ -5,10 +5,10 @@
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "F5 BIG-IP DDoS and DNS DoS Protections"
+classname = "DNS over HTTPS / DNS over TLS"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/f5devcentral/your-class-repo"
+github_repo = "https://github.com/grf5/DoHDotiRulesLX"
 
 # OPTIONAL: Google Analytics
 # googleanalytics_id = 'UA-85156643-4'
