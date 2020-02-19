@@ -1,44 +1,28 @@
-Cooking with iRules - HTTP
-==========================
+Lab Goals
+~~~~~~~~~
 
-This class covers the following topics:
+The lab consists of four sections:
 
-- HTTP Protocol Review
-- HTTP Request Side Overview
-- HTTP Response Side Overview
-- HTTP Related Events
-- HTTP Headers
-- STREAM Command
-- HTTP Payload Capture and Manipulation (If time permits)
-- SSL::profile (If time permits)
+-  Proxying DNS over HTTPS queries to traditional DNS servers
 
-Expected time to complete: **1.25 hours**
+   -  In this section, you will use Mozilla Firefox as a DoH client to
+      browse the web using encrypted DNS through the BIG-IP using DNS
+      over HTTPS
 
-.. NOTE::
-  All work for this lab will be performed exclusively from the Windows
-  jumphost. No installation or interaction with your local system is
-  required.
+-  Proxying DNS over TLS queries to traditional DNS servers
 
+   -  In this section, you will use the kdig utility as a DoT client to
+      perform queries through the BIG-IP using DNS over TLS
 
-Lab Components
-^^^^^^^^^^^^^^
+-  Proxying traditional DNS queries to DNS over HTTPS servers
 
-The following table lists the Credentials for all components:
+   -  In this section, you will use the nslookup/dig utilities to send
+      traditional DNS queries through the BIG-IP to Google's DoH service
 
-.. list-table::
-    :widths: 20 40 40
-    :header-rows: 1
+-  Proxying traditional DNS queries to DNS over TLS servers
 
-    * - **Component**
-      - **VLAN/IP Address(es)**
-      - **Credentials**
-    * - BigIP
-      - **Management:** bigip1
-      - ``admin``/``admin.F5demo.com``
-    * - Jumphost
-      - **Jumphost:** TBD
-      - ``external_user``/``P@ssw0rd!``
-
+   -  In this section, you will use the nslookup/dig utilities to send
+      traditional DNS queries through the BIG-IP to Google's DoT service
 
 
 .. toctree::
