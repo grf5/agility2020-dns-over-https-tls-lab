@@ -136,27 +136,27 @@ termination should occur on the client side of the connection.</strong></p>
 <h2>2.2.1. Virtual Server Configuration<a class="headerlink" href="#virtual-server-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Maximize <em>Firefox</em>. Notice the virtual server for DoT-to-DNS is very
 simple:</p>
-<p><a class="reference internal" href="class1/module2/media/image11.png"><img alt="image11.png" src="class1/module2/media/image11.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image111.png"><img alt="image11.png" src="../../_images/image111.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 <p>Clicking on <em>Resources</em> tab on the top navigation bar will show that the
 virtual server has a simple pool and no iRules attached.</p>
-<p><a class="reference internal" href="class1/module2/media/image12.png"><img alt="image12.png" src="class1/module2/media/image12.png" style="width: 7.5in; height: 4.47396in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image121.png"><img alt="image12.png" src="../../_images/image121.png" style="width: 7.5in; height: 4.47396in;" /></a></p>
 </div>
 <div class="section" id="test-drive">
 <span id="test-drive-1"></span><h2>2.2.2. Test Drive<a class="headerlink" href="#test-drive" title="Permalink to this headline">¶</a></h2>
 <p>Let’s return to the desktop and launch the Lab DNS Server client. You’ll
 be automagically logged in. Let’s run a DNS over TLS query:</p>
 <p>kdig +tls &#64;10.1.10.100 www.f5.com</p>
-<p><a class="reference internal" href="class1/module2/media/image13.png"><img alt="image13.png" src="class1/module2/media/image13.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image131.png"><img alt="image13.png" src="../../_images/image131.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 </div>
 <div class="section" id="viewing-statistics">
 <h2>2.2.3. Viewing Statistics<a class="headerlink" href="#viewing-statistics" title="Permalink to this headline">¶</a></h2>
 <p>You can then see statistics on the virtual server by navigating to
 <strong>Statistics</strong> -&gt; <strong>Module Statistics</strong> -&gt; <strong>Local Traffic</strong> and
 selecting <em>Virtual Servers</em> in the drop-down list.</p>
-<p><a class="reference internal" href="class1/module2/media/image14.png"><img alt="image14.png" src="class1/module2/media/image14.png" style="width: 7.5in; height: 4.54167in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image141.png"><img alt="image14.png" src="../../_images/image141.png" style="width: 7.5in; height: 4.54167in;" /></a></p>
 <p>Because this virtual server is taking advantage of backend pools, you
 will see statistics under the <em>Pools</em> statistics type as well.</p>
-<p><a class="reference internal" href="class1/module2/media/image15.png"><img alt="image15.png" src="class1/module2/media/image15.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image151.png"><img alt="image15.png" src="../../_images/image151.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 <p>Because we don’t have any type of logging configured for that virtual
 server, you won’t see any information in <strong>System</strong> -&gt; <strong>Logs</strong> for this
 traffic. Conventional F5 logging/statistics practices can be used for
@@ -168,7 +168,7 @@ these connections, so we’ll move on.</p>
 <p>tcpdump -nni 0.0 port 53 or port 853</p>
 <p>Return to the Ubuntu Jump Host and re-run your <strong>kdig</strong> command. Observe
 the front and back-end connections using port 853 and 53, respectively.</p>
-<p><a class="reference internal" href="class1/module2/media/image16.png"><img alt="image16.png" src="class1/module2/media/image16.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image161.png"><img alt="image16.png" src="../../_images/image161.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 <p>Stop your capture before moving on to the next section. This concludes
 the DoT-to-DNS portion of the lab.</p>
 </div>
