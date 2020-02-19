@@ -51,7 +51,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3. Proxying traditional DNS to DNS over TLS" href="../module3/module3.html" />
+    <link rel="next" title="2.3. Proxying Traditional DNS to DNS over TLS" href="../module3/module3.html" />
     <link rel="prev" title="2.1. Proxying DNS over HTTPS Queries to Traditional DNS" href="../module1/module1.html" />
   </head><body>
   <div id="clouddocs-header"></div>
@@ -77,8 +77,8 @@
             <ul>
 <li><a class="reference internal" href="#">2.2. Proxying DNS over TLS Queries to Traditional DNS</a><ul>
 <li><a class="reference internal" href="#virtual-server-configuration">2.2.1. Virtual Server Configuration</a></li>
-<li><a class="reference internal" href="#test-drive">2.2.2. Test Drive</a></li>
-<li><a class="reference internal" href="#viewing-statistics">2.2.3. Viewing Statistics</a></li>
+<li><a class="reference internal" href="#test-driving-dns-over-tls-to-traditional-dns">2.2.2. Test Driving DNS over TLS to Traditional DNS</a></li>
+<li><a class="reference internal" href="#viewing-statistics-for-dot-to-dns">2.2.3. Viewing Statistics for DoT-to-DNS</a></li>
 <li><a class="reference internal" href="#packet-capture">2.2.4. Packet Capture</a></li>
 </ul>
 </li>
@@ -94,8 +94,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Lab Goals</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">2.1. Proxying DNS over HTTPS Queries to Traditional DNS</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Proxying DNS over TLS Queries to Traditional DNS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.3. Proxying traditional DNS to DNS over TLS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.4. Proxying traditional DNS queries to DNS over HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.3. Proxying Traditional DNS to DNS over TLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.4. Proxying Traditional DNS queries to DNS over HTTPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources.html">2.5. Additional Resources</a></li>
 </ul>
 </li>
@@ -141,15 +141,15 @@ simple:</p>
 virtual server has a simple pool and no iRules attached.</p>
 <p><a class="reference internal" href="../../_images/image121.png"><img alt="image12.png" src="../../_images/image121.png" style="width: 7.5in; height: 4.47396in;" /></a></p>
 </div>
-<div class="section" id="test-drive">
-<span id="test-drive-1"></span><h2>2.2.2. Test Drive<a class="headerlink" href="#test-drive" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="test-driving-dns-over-tls-to-traditional-dns">
+<span id="test-drive-1"></span><h2>2.2.2. Test Driving DNS over TLS to Traditional DNS<a class="headerlink" href="#test-driving-dns-over-tls-to-traditional-dns" title="Permalink to this headline">¶</a></h2>
 <p>Let’s return to the desktop and launch the Lab DNS Server client. You’ll
 be automagically logged in. Let’s run a DNS over TLS query:</p>
 <p>kdig +tls &#64;10.1.10.100 www.f5.com</p>
 <p><a class="reference internal" href="../../_images/image131.png"><img alt="image13.png" src="../../_images/image131.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 </div>
-<div class="section" id="viewing-statistics">
-<h2>2.2.3. Viewing Statistics<a class="headerlink" href="#viewing-statistics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="viewing-statistics-for-dot-to-dns">
+<h2>2.2.3. Viewing Statistics for DoT-to-DNS<a class="headerlink" href="#viewing-statistics-for-dot-to-dns" title="Permalink to this headline">¶</a></h2>
 <p>You can then see statistics on the virtual server by navigating to
 <strong>Statistics</strong> -&gt; <strong>Module Statistics</strong> -&gt; <strong>Local Traffic</strong> and
 selecting <em>Virtual Servers</em> in the drop-down list.</p>
@@ -183,7 +183,7 @@ the DoT-to-DNS portion of the lab.</p>
         <a href="../module1/module1.html" title="2.1. Proxying DNS over HTTPS Queries to Traditional DNS" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
        
        
-          <a href="../module3/module3.html" title="2.3. Proxying traditional DNS to DNS over TLS" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+          <a href="../module3/module3.html" title="2.3. Proxying Traditional DNS to DNS over TLS" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
        
      </div>
      </div>

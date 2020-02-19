@@ -1,12 +1,12 @@
-Proxying traditional DNS queries to DNS over HTTPS
+Proxying Traditional DNS queries to DNS over HTTPS
 --------------------------------------------------
 
 Finally, let’s look at converting a DNS query to a DoH request.
 
 .. _test-drive-3:
 
-Test Drive DNS-to-DoH
-~~~~~~~~~~~~~~~~~~~~~
+Test Driving Traditional DNS to DNS over HTTPS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We’ll once again use **kdig** as we’re simply generating a traditional
 DNS request.

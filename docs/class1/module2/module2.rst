@@ -25,8 +25,8 @@ virtual server has a simple pool and no iRules attached.
 
 .. _test-drive-1:
 
-Test Drive DoT-to-DNS
-~~~~~~~~~~~~~~~~~~~~~
+Test Driving DNS over TLS to Traditional DNS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let’s return to the desktop and launch the Lab DNS Server client. You’ll
 be automagically logged in. Let’s run a DNS over TLS query:

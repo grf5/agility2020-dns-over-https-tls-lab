@@ -1,4 +1,4 @@
-Proxying traditional DNS to DNS over TLS
+Proxying Traditional DNS to DNS over TLS
 ----------------------------------------
 
 In this section of the lab, we’re going to run DoT in the opposite
@@ -9,8 +9,8 @@ server-side SSL profile.
 
 .. _test-drive-2:
 
-Test Drive DNS-to-DoT
-~~~~~~~~~~~~~~~~~~~~~
+Test Driving Traditional DNS to DNS over TLS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On the Ubuntu jump host, issue the following command:
 

@@ -15,8 +15,8 @@ to the client-ssl profile in use for DoH/DoT listeners. Most DoH
 clients, including Firefox, will not trust a DoH server if the
 certificate is not signed by a known certificate authority.
 
-Test Drive DoH-to-DNS
-~~~~~~~~~~~~~~~~~~~~~
+Test Driving DNS over HTTPS to Traditional DNS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now, let’s generate some traffic and see the translations in real-time.
 
@@ -105,8 +105,8 @@ querying that is taking place behind the scenes.
 
 |image10.png|
 
-Packet Capture
-~~~~~~~~~~~~~~
+Capturing DNS over HTTPS Queries to Traditional DNS Traffic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Finally, minimize *Firefox* to reveal the CLI shortcuts on the desktop:
 
