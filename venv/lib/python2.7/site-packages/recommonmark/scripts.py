@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-"""
-CLI scripts for docutils CommonMark parser
-
+'''
+File: scripts.py
 Author: Steve Genoud
 Date: 2013-08-25
 Description: Scripts loaded by setuptools entry points
-"""
+'''
 
 
 try:
     import locale
     locale.setlocale(locale.LC_ALL, '')
-except ImportError:
+except:
     pass
 
 from docutils.core import publish_cmdline, default_description

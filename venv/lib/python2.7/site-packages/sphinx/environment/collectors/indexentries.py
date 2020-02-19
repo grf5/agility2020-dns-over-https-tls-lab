@@ -5,13 +5,13 @@
 
     Index entries collector for sphinx.environment.
 
-    :copyright: Copyright 2007-2017 by the Sphinx team, see AUTHORS.
+    :copyright: Copyright 2007-2018 by the Sphinx team, see AUTHORS.
     :license: BSD, see LICENSE for details.
 """
 
 from sphinx import addnodes
-from sphinx.util import split_index_msg, logging
 from sphinx.environment.collectors import EnvironmentCollector
+from sphinx.util import split_index_msg, logging
 
 if False:
     # For type annotation

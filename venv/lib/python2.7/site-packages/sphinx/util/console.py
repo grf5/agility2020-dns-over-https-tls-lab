@@ -5,13 +5,13 @@
 
     Format colored console output.
 
-    :copyright: Copyright 2007-2017 by the Sphinx team, see AUTHORS.
+    :copyright: Copyright 2007-2018 by the Sphinx team, see AUTHORS.
     :license: BSD, see LICENSE for details.
 """
 
 import os
-import sys
 import re
+import sys
 
 try:
     # check if colorama is installed to support color on Windows
