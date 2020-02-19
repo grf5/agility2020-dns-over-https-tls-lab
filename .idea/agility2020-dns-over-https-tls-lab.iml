@@ -4,7 +4,9 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/docs/_build" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/venv/lib" />
     </content>
+    <content url="file://$MODULE_DIR$/venv/lib" />
     <orderEntry type="jdk" jdkName="Python 2.7 (agility2020-dns-over-https-tls-lab)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
