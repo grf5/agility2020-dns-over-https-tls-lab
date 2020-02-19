@@ -21,7 +21,7 @@ gitdb2==2.0.3
 GitPython==2.1.10
 idna==2.7
 imagesize==1.0.0
-Jinja2==2.10
+Jinja2>=2.10.1
 jmespath==0.9.3
 livereload==2.5.2
 MarkupSafe==1.0
@@ -38,7 +38,7 @@ python-dateutil==2.7.3
 pytz==2018.5
 PyYAML==3.12
 recommonmark==0.4.0
-requests==2.19.1
+requests>=2.20.0
 rsa==3.4.2
 s3transfer==0.1.13
 seqdiag==0.9.5
@@ -58,7 +58,7 @@ sphinxcontrib-websupport==1.1.0
 sphinxjp.themes.basicstrap==0.4.3
 tornado==5.0.2
 typing==3.6.4
-urllib3==1.23
+urllib3==1.24.2
 virtualenv==16.0.0
 watchdog==0.8.3
 webcolors==1.8.1
