@@ -18,4 +18,4 @@ Welcome to the |classbold| lab at F5 Agility |year|
    class*/class*
    topology
    components
-   accesss
+   access
