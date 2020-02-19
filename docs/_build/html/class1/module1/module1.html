@@ -5,7 +5,7 @@
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3-staging.js"></script>
   <!--Production:-->
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3.js"></script>
-    <title>2.1.1. Cooking with iRules Labs</title>
+    <title>2.1. Proxying DNS over HTTPS Queries to Traditional DNS</title>
   
 
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
   <!-- F5 metadata -->
   <meta name="kb_doc_type" content="Manual"/>
   <meta name="kb_doc_type" content="User Guide"/>
-  <meta name="title" content="2.1.1. Cooking with iRules Labs"/>
+  <meta name="title" content="2.1. Proxying DNS over HTTPS Queries to Traditional DNS"/>
   <meta name="product" content="DNS over HTTPS / DNS over TLS"/>
   <meta name="version" content=""/>
   <meta name="updated_date"  content="None"/>
@@ -36,7 +36,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.1.1. Cooking with iRules Labs &#8212; DNS over HTTPS / DNS over TLS  documentation</title>
+    <title>2.1. Proxying DNS over HTTPS Queries to Traditional DNS &#8212; DNS over HTTPS / DNS over TLS  documentation</title>
     <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
@@ -51,8 +51,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.1.1.1. Lab 1 - Create an iRule that Parses the URI to Route Traffic" href="lab1.html" />
-    <link rel="prev" title="2. Cooking with iRules - HTTP" href="../class1.html" />
+    <link rel="next" title="2.2. Proxying DNS over TLS Queries to Traditional DNS" href="../module2/module2.html" />
+    <link rel="prev" title="2. Lab Goals" href="../class1.html" />
   </head><body>
   <div id="clouddocs-header"></div>
 
@@ -75,7 +75,16 @@
         <h5>Current Page</h5>
         <span class="nav-sidebartoc">
             <ul>
-<li><a class="reference internal" href="#">2.1.1. Cooking with iRules Labs</a></li>
+<li><a class="reference internal" href="#">2.1. Proxying DNS over HTTPS Queries to Traditional DNS</a><ul>
+<li><a class="reference internal" href="#certificate-requirements-for-doh-dot-virtual-servers">2.1.1. Certificate Requirements for DoH/DoT Virtual Servers</a></li>
+<li><a class="reference internal" href="#test-drive">2.1.2. Test Drive</a></li>
+<li><a class="reference internal" href="#firefox-configuration">2.1.3. Firefox Configuration</a></li>
+<li><a class="reference internal" href="#firefox-network-utilities">2.1.4. Firefox Network Utilities</a></li>
+<li><a class="reference internal" href="#doh-in-action">2.1.5. DoH in Action</a></li>
+<li><a class="reference internal" href="#big-ip-statistics-and-logging">2.1.6. BIG-IP Statistics and Logging</a></li>
+<li><a class="reference internal" href="#packet-capture">2.1.7. Packet Capture</a></li>
+</ul>
+</li>
 </ul>
 
          </span>
@@ -84,9 +93,13 @@
         <span class="nav-sidebartoc">
             <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Cooking with iRules - HTTP</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../class1.html#lab-components">2.1. Lab Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Lab Goals</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Proxying DNS over HTTPS Queries to Traditional DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Proxying DNS over TLS Queries to Traditional DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.3. Proxying traditional DNS to DNS over TLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.4. Proxying traditional DNS queries to DNS over HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources.html">2.5. Additional Resources</a></li>
 </ul>
 </li>
 </ul>
@@ -104,28 +117,113 @@
     <article class="docs-container site-article-inner">
             <nav class="site-breadcrumb-nav site-nav">
           <ul class="site-breadcrumb-list">
-            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">DNS over HTTPS / DNS over TLS </a> &gt; 2.1.1. Cooking with iRules Labs</li>
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">DNS over HTTPS / DNS over TLS </a> &gt; 2.1. Proxying DNS over HTTPS Queries to Traditional DNS</li>
           </ul>
       </nav>
       
       
 
     
-  <div class="section" id="cooking-with-irules-labs">
-<h1>2.1.1. Cooking with iRules Labs<a class="headerlink" href="#cooking-with-irules-labs" title="Permalink to this headline">¶</a></h1>
-<p>This is the collection of HTTP Labs.  Here is where you get to prove you listened in class :)</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="lab1.html">2.1.1.1. Lab 1 - Create an iRule that Parses the URI to Route Traffic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab2.html">2.1.1.2. Lab 2 - Log and Change Headers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab3.html">2.1.1.3. Lab 3 - HTTP to HTTPS Redirect</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab4.html">2.1.1.4. Lab 4 - Stream Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab5.html">2.1.1.5. Lab 5 - HTTP Payload Manipulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iRulesSummary.html">2.1.1.6. iRules Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iRuleEventsFlow.html">2.1.1.7. iRules Events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iRuleEventsFlowHTTP.html">2.1.1.8. iRules HTTP Events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iRuleEventsFlowHTTPS.html">2.1.1.9. iRules HTTPS Events</a></li>
-</ul>
+  <div class="section" id="proxying-dns-over-https-queries-to-traditional-dns">
+<h1>2.1. Proxying DNS over HTTPS Queries to Traditional DNS<a class="headerlink" href="#proxying-dns-over-https-queries-to-traditional-dns" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="certificate-requirements-for-doh-dot-virtual-servers">
+<h2>2.1.1. Certificate Requirements for DoH/DoT Virtual Servers<a class="headerlink" href="#certificate-requirements-for-doh-dot-virtual-servers" title="Permalink to this headline">¶</a></h2>
+<p>DNS over HTTPS requires a valid server-side certificate. In our lab, we
+created a self-signed CA certificate as well as a self-signed
+certificate for the server. We loaded those certificates in your Firefox
+browser so that the browser will trust the BIG-IP DoH resolver.</p>
+<p>In a real-world scenario, you would need a certificate signed by a
+well-known certificate authority and loaded into the BIG-IP and attached
+to the client-ssl profile in use for DoH/DoT listeners. Most DoH
+clients, including Firefox, will not trust a DoH server if the
+certificate is not signed by a known certificate authority.</p>
+</div>
+<div class="section" id="test-drive">
+<h2>2.1.2. Test Drive<a class="headerlink" href="#test-drive" title="Permalink to this headline">¶</a></h2>
+<p>Now, let’s generate some traffic and see the translations in real-time.</p>
+</div>
+<div class="section" id="firefox-configuration">
+<h2>2.1.3. Firefox Configuration<a class="headerlink" href="#firefox-configuration" title="Permalink to this headline">¶</a></h2>
+<p>For this test, we’re going to use Firefox as our DoH client. Click the
+second tab in Firefox to view the <a class="reference external" href="about:config">about:config</a> page. On the top of that
+page, you’ll see a search box. Enter <em>trr</em> and press enter to see the
+DoH (trusted recursive resolver) configuration.</p>
+<p><a class="reference internal" href="class1/module1/media/image2.png"><img alt="image2.png" src="class1/module1/media/image2.png" style="width: 7.5in; height: 4.6875in;" /></a></p>
+<p>We’ve pre-configured a few things for you. First, we set
+<em>network.trr.uri</em> to our custom virtual server URL. We also enabled
+<em>network.trr.useGET</em> as it’s a bit faster than using POST, but you’re
+welcome to test using POST as well. We set <em>network.trr.mode</em> to 3,
+which means we want Firefox to <strong>only</strong> use DoH. This will not be a
+typical configuration as Firefox defaults to traditional DNS when a DoH
+request fails. That explains the differing timeout values just below
+that setting. The <em>network.dns.skipTRR-when-parental-control-enabled</em>
+disables Firefox’s feature that disables DoH when parental control via
+DNS is sensed on the network.</p>
+<p><strong>Please keep in mind that these settings are changing as Firefox
+continues testing DoH. The ink on the RFC is still wet, technically, and
+those heavily involved in encrypted DNS are still working out the
+nuances.</strong></p>
+</div>
+<div class="section" id="firefox-network-utilities">
+<h2>2.1.4. Firefox Network Utilities<a class="headerlink" href="#firefox-network-utilities" title="Permalink to this headline">¶</a></h2>
+<p>Clicking on the third tab in Firefox will open the networking tools page
+within the browser. This is a great way to see if DoH (TRR in
+Mozilla-speak) is working. Click on <em>DNS Lookup</em> to bring up the DNS
+query tool.</p>
+<p><a href="#id1"><span class="problematic" id="id2">|A screenshot of a social media post Description automatically
+generated|</span></a></p>
+<p>Entering a URL and clicking <em>Resolve</em> will show the A/AAAA records
+returned for that FQDN.</p>
+<p><a href="#id3"><span class="problematic" id="id4">|A screenshot of a social media post Description automatically
+generated|</span></a></p>
+<p>If you then click on <em>DNS</em>, you’ll be presented with a table of the
+current in-browser DNS cache. Click on <em>Refresh</em> to update the view. You
+can see in the output below that TRR was <em>true</em> for the queries sent,
+meaning DoH was used to resolve those hostnames.</p>
+<p><a class="reference internal" href="class1/module1/media/image3.png"><img alt="image3.png" src="class1/module1/media/image3.png" style="width: 7.5in; height: 4.6875in;" /></a></p>
+</div>
+<div class="section" id="doh-in-action">
+<h2>2.1.5. DoH in Action<a class="headerlink" href="#doh-in-action" title="Permalink to this headline">¶</a></h2>
+<p>Open a new tab and browse to a website. Return to the third tab and
+click <em>Refresh</em> to see the updated DNS cache table.</p>
+<p><a class="reference internal" href="class1/module1/media/image4.png"><img alt="image4.png" src="class1/module1/media/image4.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+</div>
+<div class="section" id="big-ip-statistics-and-logging">
+<h2>2.1.6. BIG-IP Statistics and Logging<a class="headerlink" href="#big-ip-statistics-and-logging" title="Permalink to this headline">¶</a></h2>
+<p>Back in the first tab on the F5 web UI, navigate to <strong>Statistics</strong> -&gt;
+<strong>Module Statistics</strong> -&gt; <strong>Local Traffic</strong>. Make sure that <em>Virtual
+Servers</em> is selected in the <em>Statistics Type</em> drop-down. Observe the
+traffic statistics on the DoH-to-DNS virtual server.</p>
+<p><a class="reference internal" href="class1/module1/media/image5.png"><img alt="image5.png" src="class1/module1/media/image5.png" style="width: 7.5in; height: 4.48438in;" /></a></p>
+<p>Change the <em>Statistics Type</em> to iRulesLX and you can see how many RPC
+connections have been made.</p>
+<p><a class="reference internal" href="class1/module1/media/image6.png"><img alt="image6.png" src="class1/module1/media/image6.png" style="width: 7.5in; height: 4.4775in;" /></a></p>
+<p>Change the drop-down to <em>Pools</em>. You should notice that the back-end
+pools show 0 connections. Why? Because iRulesLX is talking to the
+back-end DoH resolvers directly. You could point your DoH iRule to a
+local VIP with a DNS pool for better performance, stability, etc. but
+that is outside the scope of this lab.</p>
+<p><a class="reference internal" href="class1/module1/media/image7.png"><img alt="image7.png" src="class1/module1/media/image7.png" style="width: 2.39879in; height: 2.88051in;" /></a></p>
+<p>Navigate to <strong>System</strong> -&gt; <strong>Logs</strong> -&gt; <strong>Local Traffic</strong>. Notice that
+some useful information is being logged to help show the parsing and
+querying that is taking place behind the scenes.</p>
+<p><a class="reference internal" href="class1/module1/media/image8.png"><img alt="image8.png" src="class1/module1/media/image8.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+</div>
+<div class="section" id="packet-capture">
+<h2>2.1.7. Packet Capture<a class="headerlink" href="#packet-capture" title="Permalink to this headline">¶</a></h2>
+<p>Finally, minimize <em>Firefox</em> to reveal the CLI shortcuts on the desktop:</p>
+<p><a class="reference internal" href="class1/module1/media/image9.png"><img alt="image9.png" src="class1/module1/media/image9.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p>Let’s open the BIG-IP DNS Proxy link to bring up the BIG-IP’s CLI. Once
+running, let’s start a capture that will show us both sides of the DoH
+proxy:</p>
+<p>tcpdump -nni 0.0 (host 10.1.1.4 and host 10.1.10.100 and port 443) or
+(host 8.8.4.4 or host 8.8.8.8 and port 53)</p>
+<p>Once running, maximize <em>Firefox</em> and perform another DNS lookup. View
+the HTTPS and DNS traffic in the packet capture output. The output below
+shows my queries to f5.com, f5agility.com and disney.com.</p>
+<p><a class="reference internal" href="class1/module1/media/image10.png"><img alt="image10.png" src="class1/module1/media/image10.png" style="width: 7.5in; height: 3.89006in;" /></a></p>
+<p>Stop your capture before moving to the next section. This concludes the
+DoH-to-DNS proxy portion of the lab.</p>
 </div>
 </div>
 
@@ -135,10 +233,10 @@
      <div class="row next-prev-btn-row">
        <div class="col-lg-12">
        
-        <a href="../class1.html" title="2. Cooking with iRules - HTTP" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+        <a href="../class1.html" title="2. Lab Goals" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
        
        
-          <a href="lab1.html" title="2.1.1.1. Lab 1 - Create an iRule that Parses the URI to Route Traffic" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+          <a href="../module2/module2.html" title="2.2. Proxying DNS over TLS Queries to Traditional DNS" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
        
      </div>
      </div>

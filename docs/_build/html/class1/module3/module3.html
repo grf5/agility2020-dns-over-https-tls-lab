@@ -1,1018 +1,187 @@
-
 <!DOCTYPE html>
+<head>
+  
+  <!--STAGING:-->
+  <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3-staging.js"></script>
+  <!--Production:-->
+  <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3.js"></script>
+    <title>2.3. Proxying traditional DNS to DNS over TLS</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="kb_doc_type" content="Manual"/>
+  <meta name="kb_doc_type" content="User Guide"/>
+  <meta name="title" content="2.3. Proxying traditional DNS to DNS over TLS"/>
+  <meta name="product" content="DNS over HTTPS / DNS over TLS"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="None"/>
+  <meta name="archived" content="Archived documents excluded"/>
+
+  
+  
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text"> jQuery.noConflict(true)</script>
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>2.3. Appendix &#8212; F5 BIG-IP DDoS and DNS DoS Protections  documentation</title>
-    
+    <title>2.3. Proxying traditional DNS to DNS over TLS &#8212; DNS over HTTPS / DNS over TLS  documentation</title>
     <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="2.2.1. Detecting and Preventing System DoS and DDoS Attacks" href="../module2/lab2.html" />
-<!--
-# Copyright 2017 F5 Networks
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
--->
-<link href="https://cdn.f5.com/favicon.ico" rel="icon">
-<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-  </head>
-  <body>
-  <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="row corp-header">
-      <div class="container corp-header">
-        <div class="container corp-menu">
-          <ul>
-            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
-            <li><a href="https://support.f5.com">Support</a></li>
-            <li><a href="https://devcentral.f5.com">Community</a></li>
-            <li><a href="https://github.com/F5Networks">GitHub</a></li>
-            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
-          </ul>
-        </div>
-      </div>
+    <link rel="next" title="2.4. Proxying traditional DNS queries to DNS over HTTPS" href="../module4/module4.html" />
+    <link rel="prev" title="2.2. Proxying DNS over TLS Queries to Traditional DNS" href="../module2/module2.html" />
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="dismiss">
+      <button type="button" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>
     </div>
-
-    <div class="row pageHeader">
-      <div class="container stat">
-        <div class="col-xs-12 stat">
-          <a class="internalLink" href="https://f5.com">
-            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
-          </a>
-            <ul id="MainMenu" class="main-menu">
-              <li>
-                <a href="#">Products
-                  <span class="indicator"><span class="arrow-up"></span></span>
-                </a>
-
-                <div class="menu-panel soft-hide" id="ProductsSubmenu">
-                  <div class="container">
-                    <ul class="submenu col-sm-11">
-                      <li class="third"><span class="a-mm-h">Connectors</span>
-                        <ul>
-                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
-                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
-                          <li><a href="http://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
-                          <li><a href="http://clouddocs.f5.com/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
-                        </ul>
-                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
-                      </li>
-                      <li class="divider"></li>
-                      <li class="third"><span class="a-mm-h">Application Service Proxy</span>
-                        <ul>
-                          <li><a href="http://clouddocs.f5.com/products/asp/latest" data-link-type="Nav: Mega">F5 Application Service Proxy</a></li>
-                        </ul>
-                        <!--span class="seemore"><a href="/products/">See all </a></span-->
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <a href="#">Container Integrations
-                  <span class="indicator"><span class="arrow-up"></span></span>
-                </a>
-
-                <div class="menu-panel soft-hide" id="ContainersSubmenu">
-                  <div class="container">
-                    <ul class="submenu col-sm-11">
-                      <li class="third"><span class="a-mm-h">Container Integrations</span>
-                        <ul>
-                          <li><a href="http://clouddocs.f5.com/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
-                          <li><a href="http://clouddocs.f5.com/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
-                          <li><a href="http://clouddocs.f5.com/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
-                        </ul>
-                        <span class="seemore"><a data-link-type="Nav: Mega" href="http://clouddocs.f5.com/containers/latest">View details </a></span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <a href="#">Clouds
-                  <span class="indicator"><span class="arrow-up"></span></span>
-                </a>
-
-                <div class="menu-panel soft-hide" id="CloudsSubmenu">
-                  <div class="container">
-                    <ul class="submenu col-sm-11">
-                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
-                        <ul>
-                          <li><a href="http://clouddocs.f5.com/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
-                        </ul>
-                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <a href="#">Resources
-                  <span class="indicator"><span class="arrow-up"></span></span>
-                </a>
-                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
-                  <div class="container">
-                    <ul class="submenu col-sm-11">
-                      <li class="third">
-                        <span class="a-mm-h">Downloads</span>
-                        <ul>
-                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
-                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks" class="internalLink">Docker Store</a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-
-                      <li class="third">
-                        <span class="a-mm-h">OpenSource</span>
-                        <ul>
-                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-
-                      <li class="third">
-                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
-                        <ul>
-                          <li>
-                            <p>Get up to speed with free self-paced courses</p>
-                          </li>
-                        </ul>
-                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
-                        <ul>
-                          <li>
-                            <p>Join the community of 250,000+ technical peers</p>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ul>
-        </div>
-      </div>
-    </div>
-  </div> <!-- /container-fluid -->
-</nav>
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 col-md-3 sidebar">
-         <h4><a href="../../">F5 BIG-IP DDoS and DNS DoS Protections </a></h4>
-<div id="searchbox" style="display: none" role="search">
+    <div id="sidebar" class="section-nav">
+      <nav class="nav-sidebartoc">
+        <h5>DNS over HTTPS / DNS over TLS  documentation </h5>
+<div id="searchbox" role="search">
   <form class="search" action="../../search.html" method="get">
-    <div>
-      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
-      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
-      <button type="submit" class="btn btn-primary btn-xs">Go</button>
-    </div>
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-  <p class="caption">
-   <span class="caption-text">Current Page</span>
-  </p>
-  <ul>
-<li><a class="reference internal" href="#">2.3. Appendix</a><ul>
-<li><a class="reference internal" href="#dns-security-vectors">2.3.1. DNS Security vectors</a></li>
-<li><a class="reference internal" href="#network-security-vectors">2.3.2. Network Security Vectors</a></li>
+        <hr>
+        <h5>Current Page</h5>
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">2.3. Proxying traditional DNS to DNS over TLS</a><ul>
+<li><a class="reference internal" href="#test-drive">2.3.1. Test Drive</a></li>
+<li><a class="reference internal" href="#viewing-statistics">2.3.2. Viewing Statistics</a></li>
+<li><a class="reference internal" href="#packet-capture">2.3.3. Packet Capture</a></li>
 </ul>
 </li>
 </ul>
 
-
-<p class="caption"><span class="caption-text">Contents:</span></p>
+         </span>
+        <hr>
+        <h5>Site Contents</h5>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. DDoS and DNS Protocol Attacks Lab Overview</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - F5 BIG-IP DDoS and DNS DoS Protections</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">2.1. Module 1 – Detecting and Preventing DNS DoS Attacks on a Virtual Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Module 2 – Detecting and Preventing System DoS and DDoS Attacks</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Lab Goals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">2.1. Proxying DNS over HTTPS Queries to Traditional DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Proxying DNS over TLS Queries to Traditional DNS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Proxying traditional DNS to DNS over TLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.4. Proxying traditional DNS queries to DNS over HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources.html">2.5. Additional Resources</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../module2/lab2.html"
-                        title="previous chapter">2.2.1. Detecting and Preventing System DoS and DDoS Attacks</a></p>
-        
-      </div>
-      <div class="col-md-offset-3 col-sm-offset-3 main">
-        <h4>
-          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">F5 BIG-IP DDoS and DNS DoS Protections</a>
-          <span class="right"><a href="../../genindex.html">Index</a></span>
-        </h4>
-        
-  <div class="section" id="appendix">
-<h1>2.3. Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dns-security-vectors">
-<h2>2.3.1. DNS Security vectors<a class="headerlink" href="#dns-security-vectors" title="Permalink to this headline">¶</a></h2>
-<p>The system tracks and rate limits all UDP DNS packets (excluding those
-whitelisted). TCP DNS packets are also tracked but only for the DNS
-requests that reach a virtual server that has a DNS profile associated
-with it.</p>
-<p><strong>NOTE: This information applies to 13.1.0.1.</strong></p>
-<p>For vectors where VLAN is &lt;tunable&gt;, you can tune this value
-in&nbsp;tmsh:&nbsp;modify sys db dos.dnsvlan&nbsp;value&nbsp;, where&nbsp;value&nbsp;is&nbsp;0-4094.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="9%" />
-<col width="13%" />
-<col width="11%" />
-<col width="54%" />
-<col width="13%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>DoS category</strong></th>
-<th class="head"><strong>Attack name</strong></th>
-<th class="head"><strong>Dos vector name</strong></th>
-<th class="head"><strong>Information</strong></th>
-<th class="head"><strong>Hardware accelerated</strong></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>DNS</td>
-<td>DNS A Query</td>
-<td>dns-a-query</td>
-<td>DNS Query, DNS Qtype is A_QRY, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS AAAA Query</td>
-<td>dns-aaaa-query</td>
-<td>DNS Query, DNS Qtype is AAAA, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DNS</td>
-<td>DNS Any Query</td>
-<td>dns-any-query</td>
-<td>DNS Query, DNS Qtype is ANY_QRY, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS AXFR Query</td>
-<td>dns-axfr-query</td>
-<td>DNS Query, DNS Qtype is AXFR, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DNS</td>
-<td>DNS CNAME Query</td>
-<td>dns-cname-query</td>
-<td>DNS Query, DNS Qtype is CNAME, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS IXFR Query</td>
-<td>dns-ixfr-query</td>
-<td>DNS Query, DNS Qtype is IXFR, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DNS</td>
-<td>DNS Malformed</td>
-<td>dns-malformed</td>
-<td>Malformed DNS packet</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS MX Query</td>
-<td>dns-mx-query</td>
-<td>DNS Query, DNS Qtype is MX, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DNS</td>
-<td>DNS NS Query</td>
-<td>dns-ns-query</td>
-<td>DNS Query, DNS Qtype is NS, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS OTHER Query</td>
-<td>dns-other-query</td>
-<td>DNS Query, DNS Qtype is OTHER, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DNS</td>
-<td>DNS PTR Query</td>
-<td>dns-ptr-query</td>
-<td>DNS Query, DNS Qtype is PTR, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS Question Items != 1</td>
-<td>dns-qdcount-limit</td>
-<td>DNS Query, DNS Qtype is ANY_QRY, the DNS query has more than one question.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DNS</td>
-<td>DNS Response Flood</td>
-<td>dns-response-flood</td>
-<td>UDP DNS Port=53, packet and DNS header flags bit 15 is 1 (response), VLAN is &lt;tunable&gt; in tmsh using&nbsp;dos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS SOA Query</td>
-<td>dns-soa-query</td>
-<td>DNS Query, DNS Qtype is SOA_QRY, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DNS</td>
-<td>DNS SRV Query</td>
-<td>dns-srv-query</td>
-<td>DNS Query, DNS Qtype is SRV, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>DNS</td>
-<td>DNS TXT Query</td>
-<td>dns-txt-query</td>
-<td>DNS Query, DNS Qtype is TXT, VLAN is &lt;tunable&gt; in tmsh usingdos.dnsvlan.</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="network-security-vectors">
-<h2>2.3.2. Network Security Vectors<a class="headerlink" href="#network-security-vectors" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="6%" />
-<col width="15%" />
-<col width="8%" />
-<col width="64%" />
-<col width="7%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>DoS category</strong></th>
-<th class="head"><strong>Attack name</strong></th>
-<th class="head"><strong>Dos vector name</strong></th>
-<th class="head"><strong>Information</strong></th>
-<th class="head"><strong>Hardware accelerated</strong></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Flood</td>
-<td>Ethernet Broadcast Packet</td>
-<td>ether-brdcst-pkt</td>
-<td>Ethernet broadcast packet flood</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>Ethernet Multicast Packet</td>
-<td>ether-multicst-pkt</td>
-<td>Ethernet destination is not broadcast, but is multicast</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>ARP Flood</td>
-<td>arp-flood</td>
-<td>ARP packet flood</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>IP Fragment Flood</td>
-<td>ip-frag-flood</td>
-<td>Fragmented packet flood with IPv4</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>IGMP Flood</td>
-<td>igmp-flood</td>
-<td>Flood with IGMP packets (IPv4 packets with IP protocol number 2)</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>Routing Header Type 0</td>
-<td>routing-header-type-0</td>
-<td>Routing header type zero is present in flood packets</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>IPv6 Fragment Flood</td>
-<td>ipv6-frag-flood</td>
-<td>Fragmented packet flood with IPv6</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>IGMP Fragment Flood</td>
-<td>igmp-frag-flood</td>
-<td>Fragmented packet flood with IGMP protocol</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>TCP SYN Flood</td>
-<td>tcp-syn-flood</td>
-<td>TCP SYN flood</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>TCP SYN ACK Flood</td>
-<td>tcp-synack-flood</td>
-<td>TCP SYN/ACK flood</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>TCP RST Flood</td>
-<td>tcp-rst-flood</td>
-<td>TCP RST flood</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>TCP Window Size</td>
-<td>tcp-window-size</td>
-<td>The TCP window size in packets is above the maximum. To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.tcplowwindowsizevalue&nbsp;, where&nbsp;value&nbsp;is &lt;=128.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>ICMPv4 Flood</td>
-<td>icmpv4-flood</td>
-<td>Flood with ICMP v4 packets</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>ICMPv6 Flood</td>
-<td>icmpv6-flood</td>
-<td>Flood with ICMP v6 packets</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>UDP Flood</td>
-<td>udp-flood</td>
-<td>UDP flood attack</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>TCP SYN Oversize</td>
-<td>tcp-syn-oversize</td>
-<td>Detects TCP data SYN packets larger than the maximum specified by the dos.maxsynsize parameter. To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.maxsynsize&nbsp;value&nbsp;. The default size is&nbsp;64&nbsp;and the maximum allowable value is&nbsp;9216.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Flood</td>
-<td>TCP Push Flood</td>
-<td>tcp-push-flood</td>
-<td>TCP push packet flood</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Flood</td>
-<td>TCP BADACK Flood</td>
-<td>tcp-ack-flood</td>
-<td>TCP ACK packet flood</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>Bad Header - L2</td>
-<td>Ethernet MAC Source Address == Destination Address</td>
-<td>ether-mac-sa-eq-da</td>
-<td>Ethernet MAC source address equals the destination address</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv4</td>
-<td>Bad IP Version</td>
-<td>bad-ver</td>
-<td>The IPv4 address version in the IP header is not 4</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv4</td>
-<td>Header Length Too Short</td>
-<td>hdr-len-too-short</td>
-<td>IPv4 header length is less than 20 bytes</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv4</td>
-<td>Header Length &gt; L2 Length</td>
-<td>hdr-len-gt-l2-len</td>
-<td>No room in layer 2 packet for IP header (including options) for IPv4 address</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv4</td>
-<td>L2 Length &gt;&gt; IP Length</td>
-<td>l2-len-ggt-ip-len</td>
-<td>Layer 2 packet length is much greater than the payload length in an IPv4 address header and the layer 2 length is greater than the minimum packet size</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv4</td>
-<td>No L4</td>
-<td>no-l4</td>
-<td>No layer 4 payload for IPv4 address</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv4</td>
-<td>Bad IP TTL Value</td>
-<td>bad-ttl-val</td>
-<td>Time-to-live equals zero for an IPv4 address</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv4</td>
-<td>TTL &lt;= &lt;tunable&gt;</td>
-<td>ttl-leq-one</td>
-<td>An IP packet with a destination that is not multicast and that has a TTL greater than 0 and less than or equal to a tunable value, which is 1 by default. To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.iplowttlvalue&nbsp;, where&nbsp;value&nbsp;is&nbsp;1-4.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv4</td>
-<td>IP Error Checksum</td>
-<td>ip-err-chksum</td>
-<td>The header checksum is not correct</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv4</td>
-<td>IP Option Frames</td>
-<td>ip-opt-frames</td>
-<td>IPv4 address packet with&nbsp;option.db variable tm.acceptipsourceroute&nbsp;must be enabled to receive IP options.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv4</td>
-<td>Bad Source</td>
-<td>ip-bad-src</td>
-<td>The IPv4 source IP =&nbsp;255.255.255.255&nbsp;or&nbsp;0xe0000000U</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv4</td>
-<td>IP Option Illegal Length</td>
-<td>bad-ip-opt</td>
-<td>Option present with illegal length</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv4</td>
-<td>Unknown Option Type</td>
-<td>unk-ipopt-type</td>
-<td>Unknown IP option type</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IGMP</td>
-<td>Bad IGMP Frame</td>
-<td>bad-igmp-frame</td>
-<td>IPv4 IGMP packets should have a header &gt;= 8 bytes. Bits 7:0 should be either 0x11, 0x12, 0x16, 0x22 or 0x17, or else the header is bad. Bits 15:8 should be non-zero only if bits 7:0 are 0x11, or else the header is bad.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Fragmentation</td>
-<td>IP Fragment Too Small</td>
-<td>ip-short-frag</td>
-<td>IPv4 short fragment error</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Fragmentation</td>
-<td>IPv6 Fragment Too Small</td>
-<td>ipv6-short-frag</td>
-<td>IPv6 short fragment error</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Fragmentation</td>
-<td>IPV6 Atomic Fragment</td>
-<td>ipv6-atomic-frag</td>
-<td>IPv6 Frag header present with M=0 and FragOffset =0</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Fragmentation</td>
-<td>ICMP Fragment</td>
-<td>icmp-frag</td>
-<td>ICMP fragment flood</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Fragmentation</td>
-<td>IP Fragment Error</td>
-<td>ip-other-frag</td>
-<td>Other IPv4 fragment error</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Fragmentation</td>
-<td>IPV6 Fragment Error</td>
-<td>ipv6-other-frag</td>
-<td>Other IPv6 fragment error</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Fragmentation</td>
-<td>IP Fragment Overlap</td>
-<td>ip-overlap-frag</td>
-<td>IPv4 overlapping fragment error</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>Fragmentation</td>
-<td>IPv6 Fragment Overlap</td>
-<td>ipv6-overlap-frag</td>
-<td>IPv6 overlapping fragment error</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv6</td>
-<td>Bad IPV6 Version</td>
-<td>bad-ipv6-ver</td>
-<td>The IPv6 address version in the IP header is not 6</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv6</td>
-<td>IPV6 Length &gt; L2 Length</td>
-<td>ipv6-len-gt-l2-len</td>
-<td>IPv6 address length is greater than the layer 2 length</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv6</td>
-<td>Payload Length &lt; L2 Length</td>
-<td>payload-len-ls-l2-len</td>
-<td>Specified IPv6 payload length is less than the L2 packet length</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv6</td>
-<td>Too Many Extension Headers</td>
-<td>too-many-ext-hdrs</td>
-<td>For an IPv6 address, there are more than &lt;tunable&gt; extended headers (the default is&nbsp;4). To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.maxipv6exthdrs&nbsp;value&nbsp;, where&nbsp;value&nbsp;is&nbsp;0-15.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv6</td>
-<td>IPv6 duplicate extension headers</td>
-<td>dup-ext-hdr</td>
-<td>An extension header should occur only once in an IPv6 packet, except for the Destination Options extension header</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv6</td>
-<td>IPv6 extension header too large</td>
-<td>ext-hdr-too-large</td>
-<td>An extension header is too large. To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.maxipv6extsize&nbsp;value&nbsp;, where&nbsp;value&nbsp;is&nbsp;0-1024.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv6</td>
-<td>No L4 (Extended Headers Go To Or Past End of Frame)</td>
-<td>l4-ext-hdrs-go-end</td>
-<td>Extended headers go to the end or past the end of the L4 frame</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv6</td>
-<td>Bad IPV6 Hop Count</td>
-<td>bad-ipv6-hop-cnt</td>
-<td>Both the terminated (cnt=0) and forwarding packet (cnt=1) counts are bad</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv6</td>
-<td>IPv6 hop count &lt;= &lt;tunable&gt;</td>
-<td>hop-cnt-leq-one</td>
-<td>The IPv6 extended header hop count is less than or equal to &lt;tunable&gt;. To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.ipv6lowhopcntvalue&nbsp;, where&nbsp;value&nbsp;is&nbsp;1-4.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv6</td>
-<td>IPv6 Extended Header Frames</td>
-<td>ipv6-ext-hdr-frames</td>
-<td>IPv6 address contains extended header frames</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv6</td>
-<td>IPv6 extended headers wrong order</td>
-<td>bad-ext-hdr-order</td>
-<td>Extension headers in the IPv6 header are in the wrong order</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - IPv6</td>
-<td>Bad IPv6 Addr</td>
-<td>ipv6-bad-src</td>
-<td>IPv6 source IP =&nbsp;0xff00:</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - IPv6</td>
-<td>IPv4 Mapped IPv6</td>
-<td>ipv4-mapped-ipv6</td>
-<td>IPv4 address is in the lowest 32 bits of an IPv6 address.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - TCP</td>
-<td>TCP Header Length Too Short (Length &lt; 5)</td>
-<td>tcp-hdr-len-too-short</td>
-<td>The Data Offset value in the TCP header is less than five 32-bit words</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - TCP</td>
-<td>TCP Header Length &gt; L2 Length</td>
-<td>tcp-hdr-len-gt-l2-len</td>
-<td>&#160;</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - TCP</td>
-<td>Unknown TCP Option Type</td>
-<td>unk-tcp-opt-type</td>
-<td>Unknown TCP option type</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - TCP</td>
-<td>Option Present With Illegal Length</td>
-<td>opt-present-with-illegal-len</td>
-<td>Option present with illegal length</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - TCP</td>
-<td>TCP Option Overruns TCP Header</td>
-<td>tcp-opt-overruns-tcp-hdr</td>
-<td>The TCP option bits overrun the TCP header</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - TCP</td>
-<td>Bad TCP Checksum</td>
-<td>bad-tcp-chksum</td>
-<td>The TCP checksum does not match</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - TCP</td>
-<td>Bad TCP Flags (All Flags Set)</td>
-<td>bad-tcp-flags-all-set</td>
-<td>Bad TCP flags (all flags set)</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - TCP</td>
-<td>Bad TCP Flags (All Cleared)</td>
-<td>bad-tcp-flags-all-clr</td>
-<td>Bad TCP flags (all cleared and SEQ#=0)</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - TCP</td>
-<td>SYN &amp;&amp; FIN Set</td>
-<td>syn-and-fin-set</td>
-<td>Bad TCP flags (SYN and FIN set)</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - TCP</td>
-<td>FIN Only Set</td>
-<td>fin-only-set</td>
-<td>Bad TCP flags (only FIN is set)</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - TCP</td>
-<td>TCP Flags - Bad URG</td>
-<td>tcp-bad-urg</td>
-<td>Packet contains a bad URG flag, this is likely malicious</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - ICMP</td>
-<td>Bad ICMP Checksum</td>
-<td>bad-icmp-chksum</td>
-<td>An ICMP frame checksum is bad. Reuse the TCP or UDP checksum bits in the packet</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - ICMP</td>
-<td>Bad ICMP Frame</td>
-<td>bad-icmp-frame</td>
-<td><p class="first">The ICMP frame is either the wrong size, or not of one of the valid IPv4 or IPv6 types. Valid IPv4 types:</p>
-<ul class="simple">
-<li>0 Echo Reply</li>
-<li>3 Destination Unreachable</li>
-<li>4 Source Quench</li>
-<li>5 Redirect</li>
-<li>8 Echo</li>
-<li>11 Time Exceeded</li>
-<li>12 Parameter Problem</li>
-<li>13 Timestamp</li>
-<li>14 Timestamp Reply</li>
-<li>15 Information Request</li>
-<li>16 Information Reply</li>
-<li>17 Address Mask Request</li>
-<li>18 Address Mask Reply</li>
-</ul>
-<p>Valid IPv6 types:</p>
-<ul class="last simple">
-<li>1 Destination Unreachable</li>
-<li>2 Packet Too Big</li>
-<li>3 Time Exceeded</li>
-<li>4 Parameter Problem</li>
-<li>128 Echo Request</li>
-<li>129 Echo Reply</li>
-<li>130 Membership Query</li>
-<li>131 Membership Report</li>
-<li>132 Membership Reduction</li>
-</ul>
-</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - ICMP</td>
-<td>ICMP Frame Too Large</td>
-<td>icmp-frame-too-large</td>
-<td>The ICMP frame exceeds the declared IP data length or the maximum datagram length. To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.maxicmpframesize&nbsp;value&nbsp;, where&nbsp;value&nbsp;is &lt;=65515.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - UDP</td>
-<td>Bad UDP Header (UDP Length &gt; IP Length or L2 Length)</td>
-<td>bad-udp-hdr</td>
-<td>UDP length is greater than IP length or layer 2 length</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Bad Header - UDP</td>
-<td>Bad UDP Checksum</td>
-<td>bad-udp-chksum</td>
-<td>The UDP checksum is not correct</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Other</td>
-<td>Host Unreachable</td>
-<td>host-unreachable</td>
-<td>Host unreachable error</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Other</td>
-<td>TIDCMP</td>
-<td>tidcmp</td>
-<td>ICMP source quench attack</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Other</td>
-<td>LAND Attack</td>
-<td>land-attack</td>
-<td>Source IP equals destination IP address</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Other</td>
-<td>IP Unknown protocol</td>
-<td>ip-unk-prot</td>
-<td>Unknown IP protocol</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>Other</td>
-<td>TCP Half Open</td>
-<td>tcp-half-open</td>
-<td>The number of new or untrusted TCP connections that can be established. Overrides the Global SYN Check threshold in Configuration &gt; Local Traffic &gt; General.</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>Other</td>
-<td>IP uncommon proto</td>
-<td>ip-uncommon-proto</td>
-<td>Sets thresholds for and tracks packets containing IP protocols considered to be uncommon. By default, all IP protocols other than TCP, UDP, ICMP, IPV6-ICMP, and SCTP are on the IP uncommon protocol list.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>Bad Header - DNS</td>
-<td>DNS Oversize</td>
-<td>dns-oversize</td>
-<td>Detects oversized DNS headers. To tune this value, in&nbsp;tmsh:&nbsp;modify sys db dos.maxdnssize&nbsp;value&nbsp;, where&nbsp;value&nbsp;is&nbsp;256-8192.</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>Single Endpoint</td>
-<td>Single Endpoint Sweep</td>
-<td>sweep</td>
-<td>Sweep on a single endpoint. You can configure packet types to check for, and packets per second for both detection and rate limiting.</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>Single Endpoint</td>
-<td>Single Endpoint Flood</td>
-<td>flood</td>
-<td>Flood to a single endpoint. You can configure packet types to check for, and packets per second for both detection and rate limiting.</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>Bad Header-SCTP</td>
-<td>Bad SCTP Checksum</td>
-<td>bad-sctp-checksum</td>
-<td>Bad SCTP packet checksum</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-
-        
-		     <div class="row next-prev-btn-row">
-           <div class="col-lg-12">
-           
-		        <a href="../module2/lab2.html" title="2.2.1. Detecting and Preventing System DoS and DDoS Attacks" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
-           
-           
-		     </div>
-         </div>
-        
-      </div>
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
     </div>
+
+  
+  <div class="main active" id="content">
+    <article class="docs-container site-article-inner">
+            <nav class="site-breadcrumb-nav site-nav">
+          <ul class="site-breadcrumb-list">
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">DNS over HTTPS / DNS over TLS </a> &gt; 2.3. Proxying traditional DNS to DNS over TLS</li>
+          </ul>
+      </nav>
+      
+      
+
+    
+  <div class="section" id="proxying-traditional-dns-to-dns-over-tls">
+<h1>2.3. Proxying traditional DNS to DNS over TLS<a class="headerlink" href="#proxying-traditional-dns-to-dns-over-tls" title="Permalink to this headline">¶</a></h1>
+<p>In this section of the lab, we’re going to run DoT in the opposite
+direction, taking traditional DNS requests and translating them into DoT
+requests. This is done as simply as the DoT-to-DNS; we simply take the
+incoming DNS connection (UDP or TCP) and encapsulate it in TLS using a
+server-side SSL profile.</p>
+<div class="section" id="test-drive">
+<span id="test-drive-2"></span><h2>2.3.1. Test Drive<a class="headerlink" href="#test-drive" title="Permalink to this headline">¶</a></h2>
+<p>On the Ubuntu jump host, issue the following command:</p>
+<p>kdig &#64;10.1.10.101 <a class="reference external" href="http://www.yahoo.com">www.yahoo.com</a></p>
+<p>You should receive a successful response as shown below:</p>
+<p><a class="reference internal" href="class1/module3/media/image17.png"><img alt="image17.png" src="class1/module3/media/image17.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+</div>
+<div class="section" id="viewing-statistics">
+<span id="viewing-statistics-1"></span><h2>2.3.2. Viewing Statistics<a class="headerlink" href="#viewing-statistics" title="Permalink to this headline">¶</a></h2>
+<p>Back in the BIG-IP web UI, you will see that the VIP is receiving
+connections:</p>
+<p><a class="reference internal" href="class1/module3/media/image18.png"><img alt="image18.png" src="class1/module3/media/image18.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p>Issuing the same command with TCP will increment the counters on the
+corresponding virtual server:</p>
+<p>kdig +tcp &#64;10.1.10.101 <a class="reference external" href="http://www.f5.com">www.f5.com</a></p>
+<p><a class="reference internal" href="class1/module3/media/image19.png"><img alt="image19.png" src="class1/module3/media/image19.png" style="width: 7.5in; height: 3.19271in;" /></a></p>
+<p>Again, nothing super-fancy is happening in this configuration.
+Conventional F5 logging methods can be used for this traffic so we won’t
+cover that in this lab.</p>
+</div>
+<div class="section" id="packet-capture">
+<span id="packet-capture-2"></span><h2>2.3.3. Packet Capture<a class="headerlink" href="#packet-capture" title="Permalink to this headline">¶</a></h2>
+<p>We can see the 53/853 exchange on a packet capture using the same
+<strong>tcpdump</strong> command we used in the DoT-to-DNS section, as the IP/ports
+are simply being switched around:</p>
+<p>tcpdump -nni 0.0 (host 10.1.20.10 or 10.1.1.6) and (port 53 or port 853)</p>
+<p>You will see the 53 and 853 connections in the output, as shown below.</p>
+<p><a class="reference internal" href="class1/module3/media/image20.png"><img alt="image20.png" src="class1/module3/media/image20.png" style="width: 7.5in; height: 3.74479in;" /></a></p>
+<p>Stop your capture before moving on to the next section. This concludes
+the DNS-to-DoT section.</p>
+</div>
+</div>
+
+
+
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../module2/module2.html" title="2.2. Proxying DNS over TLS Queries to Traditional DNS" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module4/module4.html" title="2.4. Proxying traditional DNS queries to DNS over HTTPS" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
   </div>
 
-
-  <footer>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="content-fluid pre-footer">
-            <div class="blocks-container">
-              <div class="block">
-                <h3>Support Programs</h3>
-                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
-                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
-                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
-                </a>
-              </div>
-              <div class="block">
-                <h3>Contact Support</h3>
-                <p>
-                  North America: 1-888-882-7535<br>
-                  Outside North America: 800-11-275-435
-                </p>
-                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
-                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
-                </a>
-              </div>
-              <div class="block">
-                <h3>Feedback and Help</h3>
-                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
-                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="footer">
-            <div class="container">
-              <div class="col-sm-3 col-md-2">
-                <h4>About F5</h4>
-                <ul>
-                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
-                  </li>
-                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-sm-3 col-md-2">
-                <h4>Education</h4>
-                <ul>
-                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
-                  </li>
-                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
-                  </li>
-                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-sm-3 col-md-2">
-                <h4>F5 sites</h4>
-                <ul>
-                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
-                </li>
-                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
-                </li>
-                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-sm-3 col-md-2">
-            <h4>Support Tasks</h4>
-            <ul>
-                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
-                </li>
-                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
-                </li>
-                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-xs-12 col-md-3 right">
-            <h4>Connect with us</h4>
-            <ul class="social_icons">
-                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
-                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
-                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
-                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
-                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
-            </ul>
-        </div>
-
-        <div class="content-fluid left">
-            <div class="col-xs-12">
-                <p>
-                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
-                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
-                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
-                </p>
-            </div>
-        </div>
-    </div>
 </div>
-    </div>
-</div>
-</footer>
+
+
+  <div id="clouddocs-footer"></div>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
@@ -1021,5 +190,6 @@ in&nbsp;tmsh:&nbsp;modify sys db dos.dnsvlan&nbsp;value&nbsp;, where&nbsp;value&
   <script type="text/javascript">
     jQuery.noConflict(true)
   </script>
+  <script src="../../_static/js/clouddocs.js"></script>
   </body>
 </html>

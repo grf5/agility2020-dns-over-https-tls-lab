@@ -5,7 +5,7 @@
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3-staging.js"></script>
   <!--Production:-->
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3.js"></script>
-    <title>1. Getting Started</title>
+    <title>1. Introduction</title>
   
 
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
   <!-- F5 metadata -->
   <meta name="kb_doc_type" content="Manual"/>
   <meta name="kb_doc_type" content="User Guide"/>
-  <meta name="title" content="1. Getting Started"/>
+  <meta name="title" content="1. Introduction"/>
   <meta name="product" content="DNS over HTTPS / DNS over TLS"/>
   <meta name="version" content=""/>
   <meta name="updated_date"  content="None"/>
@@ -36,7 +36,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1. Getting Started &#8212; DNS over HTTPS / DNS over TLS  documentation</title>
+    <title>1. Introduction &#8212; DNS over HTTPS / DNS over TLS  documentation</title>
     <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/css/f5_agility_theme.css" type="text/css" />
@@ -51,7 +51,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Cooking with iRules - HTTP" href="class1/class1.html" />
+    <link rel="next" title="2. Lab Goals" href="class1/class1.html" />
     <link rel="prev" title="F5 Agility Labs - Index" href="index.html" />
   </head><body>
   <div id="clouddocs-header"></div>
@@ -75,13 +75,7 @@
         <h5>Current Page</h5>
         <span class="nav-sidebartoc">
             <ul>
-<li><a class="reference internal" href="#">1. Getting Started</a><ul>
-<li><a class="reference internal" href="#lab-topology">1.1. Lab Topology</a><ul>
-<li><a class="reference internal" href="#lab-components">1.1.1. Lab Components</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">1. Introduction</a></li>
 </ul>
 
          </span>
@@ -90,11 +84,8 @@
         <span class="nav-sidebartoc">
             <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lab-topology">1.1. Lab Topology</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="class1/class1.html">2. Cooking with iRules - HTTP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class1/class1.html">2. Lab Goals</a></li>
 </ul>
 
         </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
@@ -110,62 +101,28 @@
     <article class="docs-container site-article-inner">
             <nav class="site-breadcrumb-nav site-nav">
           <ul class="site-breadcrumb-list">
-            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="index.html">DNS over HTTPS / DNS over TLS </a> &gt; 1. Getting Started</li>
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="index.html">DNS over HTTPS / DNS over TLS </a> &gt; 1. Introduction</li>
           </ul>
       </nav>
       
       
 
     
-  <div class="section" id="getting-started">
-<h1>1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>Please follow the instructions provided by the instructor to start your
-lab and access your jump host.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">All work for this lab will be performed exclusively from the Windows
-jumphost. No installation or interaction with your local system is
-required.</p>
-</div>
-<div class="section" id="lab-topology">
-<h2>1.1. Lab Topology<a class="headerlink" href="#lab-topology" title="Permalink to this headline">¶</a></h2>
-<p>The following components have been included in your lab environment:</p>
-<ul class="simple">
-<li>2 x F5 BIG-IP VE (v12.1)</li>
-<li>1 x F5 iWorkflow VE (v2.1)</li>
-<li>1 x Linux LAMP Webserver (xubuntu 14.04)</li>
-<li>1 x Windows Jumphost</li>
-</ul>
-<div class="section" id="lab-components">
-<h3>1.1.1. Lab Components<a class="headerlink" href="#lab-components" title="Permalink to this headline">¶</a></h3>
-<p>The following table lists VLANS, IP Addresses and Credentials for all
-components:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="40%" />
-<col width="40%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head stub"><strong>Component</strong></th>
-<th class="head"><strong>VLAN/IP Address(es)</strong></th>
-<th class="head"><strong>Credentials</strong></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><th class="stub">Sample Host</th>
-<td><ul class="first last simple">
-<li><strong>Management:</strong> 10.1.1.250</li>
-<li><strong>Internal:</strong> 10.1.10.250</li>
-<li><strong>External:</strong> 10.1.20.250</li>
-</ul>
-</td>
-<td><code class="docutils literal notranslate"><span class="pre">admin</span></code>/<code class="docutils literal notranslate"><span class="pre">admin</span></code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+  <div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>In this lab, you will see DNS over HTTPS (DoH) and DNS over TLS (DoT)
+queries proxied in both directions. That is, traditional DNS queries
+will be proxied to backend DoT/DoH servers,</p>
+<p>as well as DoH/DoT queries being proxied to traditional DNS servers.</p>
+<p>DoT is “simpler” to proxy as the original DNS protocol is simply
+encapsulated in TLS using client-SSL (DoT-to-DNS) or server-ssl
+(DNS-to-DoT) profiles.</p>
+<p>DoH is a bit more complex as we must take the DNS request and
+encapsulate it into a binary HTTPS payload (DNS-to-DoH) or extract the
+binary payload and convert it into a traditional DNS query (DoH-to-DNS).</p>
+<p>We will use the power of iRulesLX to handle this advanced task. Native
+functionality will be available in a near-future release of TMOS so that
+the iRules will not be necessary.</p>
 </div>
 
 
@@ -177,7 +134,7 @@ components:</p>
         <a href="index.html" title="F5 Agility Labs - Index" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
        
        
-          <a href="class1/class1.html" title="2. Cooking with iRules - HTTP" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+          <a href="class1/class1.html" title="2. Lab Goals" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
        
      </div>
      </div>
