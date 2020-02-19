@@ -54,21 +54,19 @@ within the browser. This is a great way to see if DoH (TRR in
 Mozilla-speak) is working. Click on *DNS Lookup* to bring up the DNS
 query tool.
 
-|A screenshot of a social media post Description automatically
-generated|
+|image3.png|
 
 Entering a URL and clicking *Resolve* will show the A/AAAA records
 returned for that FQDN.
 
-|A screenshot of a social media post Description automatically
-generated|
+|image4.png|
 
 If you then click on *DNS*, you’ll be presented with a table of the
 current in-browser DNS cache. Click on *Refresh* to update the view. You
 can see in the output below that TRR was *true* for the queries sent,
 meaning DoH was used to resolve those hostnames.
 
-|image3.png|
+|image5.png|
 
 DoH in Action
 ~~~~~~~~~~~~~
@@ -76,7 +74,7 @@ DoH in Action
 Open a new tab and browse to a website. Return to the third tab and
 click *Refresh* to see the updated DNS cache table.
 
-|image4.png|
+|image6.png|
 
 BIG-IP Statistics and Logging
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -86,12 +84,12 @@ Back in the first tab on the F5 web UI, navigate to **Statistics** ->
 Servers* is selected in the *Statistics Type* drop-down. Observe the
 traffic statistics on the DoH-to-DNS virtual server.
 
-|image5.png|
+|image7.png|
 
 Change the *Statistics Type* to iRulesLX and you can see how many RPC
 connections have been made.
 
-|image6.png|
+|image8.png|
 
 Change the drop-down to *Pools*. You should notice that the back-end
 pools show 0 connections. Why? Because iRulesLX is talking to the
@@ -99,20 +97,20 @@ back-end DoH resolvers directly. You could point your DoH iRule to a
 local VIP with a DNS pool for better performance, stability, etc. but
 that is outside the scope of this lab.
 
-|image7.png|
+|image9.png|
 
 Navigate to **System** -> **Logs** -> **Local Traffic**. Notice that
 some useful information is being logged to help show the parsing and
 querying that is taking place behind the scenes.
 
-|image8.png|
+|image10.png|
 
 Packet Capture
 ~~~~~~~~~~~~~~
 
 Finally, minimize *Firefox* to reveal the CLI shortcuts on the desktop:
 
-|image9.png|
+|image11.png|
 
 Let’s open the BIG-IP DNS Proxy link to bring up the BIG-IP’s CLI. Once
 running, let’s start a capture that will show us both sides of the DoH
@@ -125,7 +123,7 @@ Once running, maximize *Firefox* and perform another DNS lookup. View
 the HTTPS and DNS traffic in the packet capture output. The output below
 shows my queries to f5.com, f5agility.com and disney.com.
 
-|image10.png|
+|image12.png|
 
 Stop your capture before moving to the next section. This concludes the
 DoH-to-DNS proxy portion of the lab.

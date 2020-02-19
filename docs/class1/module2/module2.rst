@@ -71,9 +71,6 @@ the front and back-end connections using port 853 and 53, respectively.
 Stop your capture before moving on to the next section. This concludes
 the DoT-to-DNS portion of the lab.
 
-
-
-
 .. |image1.png| image:: media/image1.png
    :width: 7.5in
    :height: 5.29969in
