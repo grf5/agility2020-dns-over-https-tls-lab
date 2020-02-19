@@ -15,8 +15,8 @@ to the client-ssl profile in use for DoH/DoT listeners. Most DoH
 clients, including Firefox, will not trust a DoH server if the
 certificate is not signed by a known certificate authority.
 
-Test Drive
-~~~~~~~~~~
+Test Drive DoH-to-DNS
+~~~~~~~~~~~~~~~~~~~~~
 
 Now, let’s generate some traffic and see the translations in real-time.
 

@@ -25,8 +25,8 @@ virtual server has a simple pool and no iRules attached.
 
 .. _test-drive-1:
 
-Test Drive
-~~~~~~~~~~
+Test Drive DoT-to-DNS
+~~~~~~~~~~~~~~~~~~~~~
 
 Let’s return to the desktop and launch the Lab DNS Server client. You’ll
 be automagically logged in. Let’s run a DNS over TLS query:
@@ -35,8 +35,8 @@ kdig +tls @10.1.10.100 www.f5.com
 
 |image13.png|
 
-Viewing Statistics
-~~~~~~~~~~~~~~~~~~
+Viewing Statistics for DoT-to-DNS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can then see statistics on the virtual server by navigating to
 **Statistics** -> **Module Statistics** -> **Local Traffic** and

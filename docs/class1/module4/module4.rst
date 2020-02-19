@@ -5,8 +5,8 @@ Finally, let’s look at converting a DNS query to a DoH request.
 
 .. _test-drive-3:
 
-Test Drive
-~~~~~~~~~~
+Test Drive DNS-to-DoH
+~~~~~~~~~~~~~~~~~~~~~
 
 We’ll once again use **kdig** as we’re simply generating a traditional
 DNS request.
@@ -19,8 +19,8 @@ You’ll get a response as shown below:
 
 .. _viewing-statistics-2:
 
-Viewing Statistics
-~~~~~~~~~~~~~~~~~~
+Viewing Statistics for DNS-to-DoH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Back on the BIG-IP, we’ll see connections on the DNS-to-DoH virtual
 server:

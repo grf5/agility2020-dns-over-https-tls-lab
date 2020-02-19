@@ -9,8 +9,8 @@ server-side SSL profile.
 
 .. _test-drive-2:
 
-Test Drive
-~~~~~~~~~~
+Test Drive DNS-to-DoT
+~~~~~~~~~~~~~~~~~~~~~
 
 On the Ubuntu jump host, issue the following command:
 
@@ -22,8 +22,8 @@ You should receive a successful response as shown below:
 
 .. _viewing-statistics-1:
 
-Viewing Statistics
-~~~~~~~~~~~~~~~~~~
+Viewing Statistics for DNS-to-DoT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Back in the BIG-IP web UI, you will see that the VIP is receiving
 connections:
