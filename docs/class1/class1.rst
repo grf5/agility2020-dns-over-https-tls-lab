@@ -30,3 +30,4 @@ The lab consists of four sections:
    :glob:
 
    module*/module*
+   resources*

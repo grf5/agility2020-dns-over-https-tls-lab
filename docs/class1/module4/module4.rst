@@ -1,63 +1,59 @@
-Proxying traditional DNS to DNS over TLS
-----------------------------------------
+Proxying traditional DNS queries to DNS over HTTPS
+--------------------------------------------------
 
-In this section of the lab, we’re going to run DoT in the opposite
-direction, taking traditional DNS requests and translating them into DoT
-requests. This is done as simply as the DoT-to-DNS; we simply take the
-incoming DNS connection (UDP or TCP) and encapsulate it in TLS using a
-server-side SSL profile.
+Finally, let’s look at converting a DNS query to a DoH request.
 
-.. _test-drive-2:
+.. _test-drive-3:
 
 Test Drive
 ~~~~~~~~~~
 
-On the Ubuntu jump host, issue the following command:
+We’ll once again use **kdig** as we’re simply generating a traditional
+DNS request.
 
-kdig @10.1.10.101 `www.yahoo.com <http://www.yahoo.com>`__
+kdig @10.1.10.102 `www.f5agility.com <http://www.f5agility.com>`__
 
-You should receive a successful response as shown below:
+You’ll get a response as shown below:
 
 |image.png|
 
-.. _viewing-statistics-1:
+.. _viewing-statistics-2:
 
 Viewing Statistics
 ~~~~~~~~~~~~~~~~~~
 
-Back in the BIG-IP web UI, you will see that the VIP is receiving
-connections:
+Back on the BIG-IP, we’ll see connections on the DNS-to-DoH virtual
+server:
 
 |image.png|
 
-Issuing the same command with TCP will increment the counters on the
-corresponding virtual server:
-
-kdig +tcp @10.1.10.101 `www.f5.com <http://www.f5.com>`__
+If we set the statistics type to *iRulesLX*, we’ll see RPC connections
+on the iRule for this translation:
 
 |image.png|
 
-Again, nothing super-fancy is happening in this configuration.
-Conventional F5 logging methods can be used for this traffic so we won’t
-cover that in this lab.
-
-.. _packet-capture-2:
+.. _packet-capture-3:
 
 Packet Capture
 ~~~~~~~~~~~~~~
 
-We can see the 53/853 exchange on a packet capture using the same
-**tcpdump** command we used in the DoT-to-DNS section, as the IP/ports
-are simply being switched around:
+Running a packet capture, we can see the front-end udp/53 requests being
+translated to DoH requests:
 
-tcpdump -nni 0.0 (host 10.1.20.10 or 10.1.1.6) and (port 53 or port 853)
+tcpdump -nni 0.0 (host 10.1.10.102 and port 53) or (host 8.8.4.4 or host
+8.8.8.8 and port 443)
 
-You will see the 53 and 853 connections in the output, as shown below.
+**If your packet capture is “noisy,” removing the HTTPS monitor from the
+“doh_google.dns” pool will stop the intermittent queries.**
 
-|image36|
+Notice that a port 53 request comes in, a HTTPS connection is set up and
+the query is passed, then the port 53 response is sent to the client
+before the HTTPS connection is torn down.
 
-Stop your capture before moving on to the next section. This concludes
-the DNS-to-DoT section.
+|image40|
+
+This concludes the hands-on portion of the lab. Feel free to explore and
+test the environment if there is time remaining.
 
 
 
