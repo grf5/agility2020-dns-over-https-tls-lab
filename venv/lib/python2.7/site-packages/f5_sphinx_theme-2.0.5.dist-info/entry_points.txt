@@ -1,0 +1,3 @@
+[sphinx.html_themes]
+f5_sphinx_theme = f5_sphinx_theme
+
