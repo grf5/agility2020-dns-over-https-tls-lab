@@ -152,7 +152,7 @@ certificate is not signed by a known certificate authority.</p>
 second tab in Firefox to view the <a class="reference external" href="about:config">about:config</a> page. On the top of that
 page, you’ll see a search box. Enter <em>trr</em> and press enter to see the
 DoH (trusted recursive resolver) configuration.</p>
-<p><a class="reference internal" href="../../_images/image2.png"><img alt="image2.png" src="../../_images/image2.png" style="width: 7.5in; height: 4.6875in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image210.png"><img alt="image2.png" src="../../_images/image210.png" style="width: 7.5in; height: 4.6875in;" /></a></p>
 <p>We’ve pre-configured a few things for you. First, we set
 <em>network.trr.uri</em> to our custom virtual server URL. We also enabled
 <em>network.trr.useGET</em> as it’s a bit faster than using POST, but you’re
@@ -174,21 +174,21 @@ nuances.</strong></p>
 within the browser. This is a great way to see if DoH (TRR in
 Mozilla-speak) is working. Click on <em>DNS Lookup</em> to bring up the DNS
 query tool.</p>
-<p><a class="reference internal" href="../../_images/image3.png"><img alt="image3.png" src="../../_images/image3.png" style="width: 7.5in; height: 4.6875in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image310.png"><img alt="image3.png" src="../../_images/image310.png" style="width: 7.5in; height: 4.6875in;" /></a></p>
 <p>Entering a URL and clicking <em>Resolve</em> will show the A/AAAA records
 returned for that FQDN.</p>
-<p><a class="reference internal" href="../../_images/image4.png"><img alt="image4.png" src="../../_images/image4.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image42.png"><img alt="image4.png" src="../../_images/image42.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 <p>If you then click on <em>DNS</em>, you’ll be presented with a table of the
 current in-browser DNS cache. Click on <em>Refresh</em> to update the view. You
 can see in the output below that TRR was <em>true</em> for the queries sent,
 meaning DoH was used to resolve those hostnames.</p>
-<p><a class="reference internal" href="../../_images/image5.png"><img alt="image5.png" src="../../_images/image5.png" style="width: 7.5in; height: 4.48438in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image51.png"><img alt="image5.png" src="../../_images/image51.png" style="width: 7.5in; height: 4.48438in;" /></a></p>
 </div>
 <div class="section" id="doh-in-action">
 <h2>5.2.5. DoH in Action<a class="headerlink" href="#doh-in-action" title="Permalink to this headline">¶</a></h2>
 <p>Open a new tab and browse to a website. Return to the third tab and
 click <em>Refresh</em> to see the updated DNS cache table.</p>
-<p><a class="reference internal" href="../../_images/image6.png"><img alt="image6.png" src="../../_images/image6.png" style="width: 7.5in; height: 4.4775in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image61.png"><img alt="image6.png" src="../../_images/image61.png" style="width: 7.5in; height: 4.4775in;" /></a></p>
 </div>
 <div class="section" id="big-ip-statistics-and-logging">
 <h2>5.2.6. BIG-IP Statistics and Logging<a class="headerlink" href="#big-ip-statistics-and-logging" title="Permalink to this headline">¶</a></h2>
@@ -196,25 +196,25 @@ click <em>Refresh</em> to see the updated DNS cache table.</p>
 <strong>Module Statistics</strong> -&gt; <strong>Local Traffic</strong>. Make sure that <em>Virtual
 Servers</em> is selected in the <em>Statistics Type</em> drop-down. Observe the
 traffic statistics on the DoH-to-DNS virtual server.</p>
-<p><a class="reference internal" href="../../_images/image7.png"><img alt="image7.png" src="../../_images/image7.png" style="width: 2.39879in; height: 2.88051in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image71.png"><img alt="image7.png" src="../../_images/image71.png" style="width: 2.39879in; height: 2.88051in;" /></a></p>
 <p>Change the <em>Statistics Type</em> to iRulesLX and you can see how many RPC
 connections have been made.</p>
-<p><a class="reference internal" href="../../_images/image8.png"><img alt="image8.png" src="../../_images/image8.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image81.png"><img alt="image8.png" src="../../_images/image81.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 <p>Change the drop-down to <em>Pools</em>. You should notice that the back-end
 pools show 0 connections. Why? Because iRulesLX is talking to the
 back-end DoH resolvers directly. You could point your DoH iRule to a
 local VIP with a DNS pool for better performance, stability, etc. but
 that is outside the scope of this lab.</p>
-<p><a class="reference internal" href="../../_images/image9.png"><img alt="image9.png" src="../../_images/image9.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image91.png"><img alt="image9.png" src="../../_images/image91.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 <p>Navigate to <strong>System</strong> -&gt; <strong>Logs</strong> -&gt; <strong>Local Traffic</strong>. Notice that
 some useful information is being logged to help show the parsing and
 querying that is taking place behind the scenes.</p>
-<p><a class="reference internal" href="../../_images/image10.png"><img alt="image10.png" src="../../_images/image10.png" style="width: 7.5in; height: 3.89006in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image101.png"><img alt="image10.png" src="../../_images/image101.png" style="width: 7.5in; height: 3.89006in;" /></a></p>
 </div>
 <div class="section" id="capturing-dns-over-https-queries-to-traditional-dns-traffic">
 <h2>5.2.7. Capturing DNS over HTTPS Queries to Traditional DNS Traffic<a class="headerlink" href="#capturing-dns-over-https-queries-to-traditional-dns-traffic" title="Permalink to this headline">¶</a></h2>
 <p>Finally, minimize <em>Firefox</em> to reveal the CLI shortcuts on the desktop:</p>
-<p><a class="reference internal" href="../../_images/image11.png"><img alt="image11.png" src="../../_images/image11.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image111.png"><img alt="image11.png" src="../../_images/image111.png" style="width: 7.5in; height: 4.47917in;" /></a></p>
 <p>Let’s open the BIG-IP DNS Proxy link to bring up the BIG-IP’s CLI. Once
 running, let’s start a capture that will show us both sides of the DoH
 proxy:</p>
@@ -223,7 +223,7 @@ proxy:</p>
 <p>Once running, maximize <em>Firefox</em> and perform another DNS lookup. View
 the HTTPS and DNS traffic in the packet capture output. The output below
 shows my queries to f5.com, f5agility.com and disney.com.</p>
-<p><a class="reference internal" href="../../_images/image12.png"><img alt="image12.png" src="../../_images/image12.png" style="width: 7.5in; height: 4.47396in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image121.png"><img alt="image12.png" src="../../_images/image121.png" style="width: 7.5in; height: 4.47396in;" /></a></p>
 <p>Stop your capture before moving to the next section. This concludes the
 DoH-to-DNS proxy portion of the lab.</p>
 </div>
