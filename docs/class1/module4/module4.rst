@@ -15,7 +15,7 @@ kdig @10.1.10.102 `www.f5agility.com <http://www.f5agility.com>`__
 
 You’ll get a response as shown below:
 
-|image.png|
+|image21.png|
 
 .. _viewing-statistics-2:
 
@@ -25,12 +25,12 @@ Viewing Statistics
 Back on the BIG-IP, we’ll see connections on the DNS-to-DoH virtual
 server:
 
-|image.png|
+|image22.png|
 
 If we set the statistics type to *iRulesLX*, we’ll see RPC connections
 on the iRule for this translation:
 
-|image.png|
+|image23.png|
 
 .. _packet-capture-3:
 
@@ -50,13 +50,10 @@ Notice that a port 53 request comes in, a HTTPS connection is set up and
 the query is passed, then the port 53 response is sent to the client
 before the HTTPS connection is torn down.
 
-|image40|
+|image24.png|
 
 This concludes the hands-on portion of the lab. Feel free to explore and
 test the environment if there is time remaining.
-
-
-
 
 .. |image1.png| image:: media/image1.png
    :width: 7.5in

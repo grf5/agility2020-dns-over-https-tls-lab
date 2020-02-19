@@ -16,12 +16,12 @@ Virtual Server Configuration
 Maximize *Firefox*. Notice the virtual server for DoT-to-DNS is very
 simple:
 
-|image.png|
+|image11.png|
 
 Clicking on *Resources* tab on the top navigation bar will show that the
 virtual server has a simple pool and no iRules attached.
 
-|image.png|
+|image12.png|
 
 .. _test-drive-1:
 
@@ -33,7 +33,7 @@ be automagically logged in. Let’s run a DNS over TLS query:
 
 kdig +tls @10.1.10.100 www.f5.com
 
-|image.png|
+|image13.png|
 
 Viewing Statistics
 ~~~~~~~~~~~~~~~~~~
@@ -42,12 +42,12 @@ You can then see statistics on the virtual server by navigating to
 **Statistics** -> **Module Statistics** -> **Local Traffic** and
 selecting *Virtual Servers* in the drop-down list.
 
-|image.png|
+|image14.png|
 
 Because this virtual server is taking advantage of backend pools, you
 will see statistics under the *Pools* statistics type as well.
 
-|image.png|
+|image15.png|
 
 Because we don’t have any type of logging configured for that virtual
 server, you won’t see any information in **System** -> **Logs** for this
@@ -66,7 +66,7 @@ tcpdump -nni 0.0 port 53 or port 853
 Return to the Ubuntu Jump Host and re-run your **kdig** command. Observe
 the front and back-end connections using port 853 and 53, respectively.
 
-|image.png|
+|image16.png|
 
 Stop your capture before moving on to the next section. This concludes
 the DoT-to-DNS portion of the lab.

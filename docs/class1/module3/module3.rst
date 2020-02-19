@@ -18,7 +18,7 @@ kdig @10.1.10.101 `www.yahoo.com <http://www.yahoo.com>`__
 
 You should receive a successful response as shown below:
 
-|image.png|
+|image17.png|
 
 .. _viewing-statistics-1:
 
@@ -28,14 +28,14 @@ Viewing Statistics
 Back in the BIG-IP web UI, you will see that the VIP is receiving
 connections:
 
-|image.png|
+|image18.png|
 
 Issuing the same command with TCP will increment the counters on the
 corresponding virtual server:
 
 kdig +tcp @10.1.10.101 `www.f5.com <http://www.f5.com>`__
 
-|image.png|
+|image19.png|
 
 Again, nothing super-fancy is happening in this configuration.
 Conventional F5 logging methods can be used for this traffic so we won’t
@@ -54,7 +54,7 @@ tcpdump -nni 0.0 (host 10.1.20.10 or 10.1.1.6) and (port 53 or port 853)
 
 You will see the 53 and 853 connections in the output, as shown below.
 
-|image36|
+|image20.png|
 
 Stop your capture before moving on to the next section. This concludes
 the DNS-to-DoT section.
