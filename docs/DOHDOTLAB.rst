@@ -1,4 +1,3 @@
-
 Lab Goals
 ~~~~~~~~~
 
@@ -24,11 +23,6 @@ The lab consists of four sections:
 
    -  In this section, you will use the nslookup/dig utilities to send
       traditional DNS queries through the BIG-IP to Google's DoT service
-
-Accessing the Lab
-~~~~~~~~~~~~~~~~~
-
-TBD; pending UDF team instructions
 
 BIG-IP Configuration Review
 ---------------------------
